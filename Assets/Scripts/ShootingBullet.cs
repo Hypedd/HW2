@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootingBullet : MonoBehaviour
 {
     public GameObject prefab;
+    public GameObject shootingPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +18,9 @@ public class ShootingBullet : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Instantiate(prefab, transform.position, transform.rotation);
             GameObject clone = Instantiate(prefab);
-            clone.transform.position = transform.position;
-            clone.transform.rotation = transform.rotation;
+            clone.transform.position = shootingPoint.transform.position;
+            clone.transform.rotation = shootingPoint.transform.rotation;
         }
     }
 
